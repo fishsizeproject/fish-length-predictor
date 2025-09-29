@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fish_length_predictor"
+version = "1.0.0"
+description = "Fish length prediction using DINOv2 visual embeddings and an AutoML XGBoost regressor."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Ricardo Cardoso Pereira" }]
+dependencies = [
+    "torch==2.5.1",
+    "torchvision==0.20.1",
+    "Pillow==10.4.0",
+    "numpy==2.0.2",
+    "scikit-learn==1.6.0",
+    "flaml==2.3.2",
+    "xgboost==2.1.3",
+    "pandas==2.2.3"
+]
+
+[project.scripts]
+fish-predict = "fish_length.cli_predictor:main"
+fish-train = "fish_length.cli_trainer:main"
+
+[tool.setuptools.packages.find]
+where = [""]
+include = ["fish_length*"]
