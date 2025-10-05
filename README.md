@@ -40,12 +40,14 @@ For batch mode (glob pattern), a CSV with columns: `file,pred_length` is written
 
 ```bash
 fish-predict <image_or_glob> \
-    [--out predictions.csv] \
-    [--device auto]
+    [--artifacts artifacts] \
+    [--device auto]  \
+    [--out predictions.csv]
 ```
 - `image_or_glob`: a single image path or a shell glob for multiple images.
-- `--out`: (batch only) output CSV path. Defaults to `predictions.csv`.
+- `--artifacts`: directory containing the trained artifacts. Defaults to `artifacts`.
 - `--device`: `"auto"`, `"cpu"`, `"gpu"`, or `"cuda"`. Defaults to `"auto"`.
+- `--out`: (batch only) output CSV path. Defaults to `predictions.csv`.
 
 Examples:
 ```bash
